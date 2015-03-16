@@ -653,7 +653,8 @@ class P3PPolicyMiddleware(BaseMiddleware):
         """
         And P3P policy to the response header.
         """
-        response['P3P'] = 'policyref="{0}" CP="{1}"'.format(self.policy_url, self.policy)
+        # response['P3P'] = 'policyref="{0}" CP="{1}"'.format(self.policy_url, self.policy)
+        response['P3P'] = 'policyref="/w3c/p3p.xml", CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT", CP="CAO PSA OUR"'
         return response
 
 
