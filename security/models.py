@@ -17,6 +17,7 @@ class PasswordExpiry(models.Model):
                                                 # users may never receive an
                                                 # expiry date.
     password_expiry_date = models.DateTimeField(auto_now_add=True,
+                                                editable=True,
                                                 null=True,
                                                 help_text="The date and time "
                                                           "when the user's "
