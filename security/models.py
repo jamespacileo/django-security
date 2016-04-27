@@ -3,6 +3,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
 class PasswordExpiry(models.Model):
     """
@@ -13,7 +14,7 @@ class PasswordExpiry(models.Model):
     security.RequirePasswordChangeMiddleware.
     """
 
-    user = models.ForeignKey(User, unique=True) # Not one-to-one because some
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, unique=True) # Not one-to-one because some
                                                 # users may never receive an
                                                 # expiry date.
     password_expiry_date = models.DateTimeField(auto_now_add=True,
